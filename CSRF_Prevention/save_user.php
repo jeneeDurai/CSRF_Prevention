@@ -1,23 +1,31 @@
 <?php
+    session_start();
     include("db.php");
 
-    if($_POST && isset($_POST['uname']) && isset($_POST['pwd']))
+
+    if(isset($_POST['_token']) && $_POST['_token'] == $_SESSION['csrf'])
     {
-        $uname= $_POST['uname'];
-        $pwd = $_POST['pwd'];
-
-
-        $queryString = "insert into users (UserName,PassWord) values ('$uname','$pwd')";
-
-        $query = mysqli_query($conn,$queryString) or die("Error on storing");
-
-        if($query==1)
+        if($_POST && isset($_POST['uname']) && isset($_POST['pwd']))
         {
-            readfile("home.php");
+            $uname= $_POST['uname'];
+            $pwd = $_POST['pwd'];
+
+
+            $queryString = "insert into users (UserName,PassWord) values ('$uname','$pwd')";
+
+            $query = mysqli_query($conn,$queryString) or die("Error on storing");
+
+            if($query==1)
+            {
+                readfile("home.php");
+            }
+            else{
+                readfile("error.php");
+            }
         }
-        else{
-             readfile("error.php");
-        }
+    }
+    else{
+        echo "Invalid data";
     }
 
 
