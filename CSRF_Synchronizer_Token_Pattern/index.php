@@ -1,12 +1,4 @@
-<?php
-    session_start();
-
-    $rand = rand();
-
-    $_SESSION['csrf'] = $rand;
-?>
-
-    <html lang="en">
+<html lang="en">
 
     <head>
         <title>CSRF</title>
@@ -24,20 +16,20 @@
                 <div class="wrap-login100">
                     <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
                         <span class="login100-form-title-1">
-						CSRF Prevention
+						Login to CSRF Prevention
 					</span>
                     </div>
 
-                    <form class="login100-form validate-form" method="post" action="save_user.php">
+                    <form class="login100-form validate-form" method="post" action="validate_login.php">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                            <span class="label-input100">Username</span>
-                            <input class="input100" type="text" name="uname" placeholder="Enter username">
+                            <span class="label-input100">Username : root</span>
+                            <input class="input100" type="text" name="username" placeholder="Enter username">
                             <span class="focus-input100"></span>
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                            <span class="label-input100">Password</span>
-                            <input class="input100" type="password" name="pwd" placeholder="Enter password">
+                            <span class="label-input100">Password : root</span>
+                            <input class="input100" type="password" name="password" placeholder="Enter password">
                             <span class="focus-input100"></span>
                         </div>
 
@@ -55,7 +47,6 @@
 							</a>
                             </div>
                         </div>
-                        <input type="hidden" name ="_token" value="<?php echo $rand?>"?/>
                         <div class="container-login100-form-btn">
                             <input type="submit" class="login100-form-btn" value="Login">
                             </button>
